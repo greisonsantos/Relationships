@@ -11,5 +11,8 @@ class Country extends Model
 
     public function location(){
       return $this->hasOne(Location::class);
+
+       // caso o nome da chave estarngeira esteja diferente do padrão
+      // return $this->hasOne(Location::class, 'coutry_id', 'location_id');
     }
 }

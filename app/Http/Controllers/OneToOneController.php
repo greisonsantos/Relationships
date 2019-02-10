@@ -20,10 +20,26 @@ class OneToOneController extends Controller
 
       //pode passar no formato de metodo ou atributo
       //$location=$country->location;
-
-
       $location=$country->location()->get()->first();
       echo "<hr>Latitude {$location->latitude} <br>";
       echo "<hr>Latitude {$location->longitude} <br>";
+    }
+
+
+  //retornar um pais por sua latidude e longitude
+    public function OneToOneInverse(){
+
+      $latitude='123';
+      $longitude='321';
+
+     $location= Location:: where('latitude',$latitude)
+                         ->where('longitude', $longitude)
+                         ->get()
+                         ->first();
+
+     // se for chamado em forma de metodo pode ser passado condiçoes a mais
+     $country= $location->country;
+
+     echo  $country->name;
     }
 }
