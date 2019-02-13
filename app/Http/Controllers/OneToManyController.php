@@ -23,15 +23,22 @@ class OneToManyController extends Controller
      //  	echo "<hr>$state->initials - $state->name";
      //  }
 
-      $countrys= Country::where('name','LIKE', '%a%')->get();
+    //with(nome relação) //trás todas as relações das relações de uma vez só
+      $countrys= Country::where('name','LIKE', '%a%')->with('states')->get();
+
+
 
       foreach ($countrys as $countrys) {
       	 echo "<b> {$countrys->name}</b>";
-          $states= $countrys->states()->get();
+          $states= $countrys->states;
 
 
           foreach ($states as $state) {
-              echo " <br> {$state->initials} - {$state->name}";
+              echo " <br> {$state->initials} - {$state->name}:";
+
+                 foreach ($state->cities as $city) {
+                    echo  "{$city->name}, ";
+                 }
           }
           echo "<hr>";
       }
