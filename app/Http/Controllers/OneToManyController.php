@@ -11,37 +11,37 @@ class OneToManyController extends Controller
 
     public function OneToMany(){
     //listar todos os estados do pais brasil
-     // $country=Country::where('name','brasil')->get()->first();
-     // echo $country->name;
+     $country=Country::where('name','brasil')->get()->first();
+     echo $country->name;
 
-     // //em formato de atributo
-     //  $states= $country->states;
-     //  ou metodo
-     //  $states= $country->states()->where();
+     //em formato de atributo
+      $states= $country->states;
+      ou metodo
+      $states= $country->states()->where();
 
-     //  foreach ($states as $state) {
-     //  	echo "<hr>$state->initials - $state->name";
-     //  }
+      foreach ($states as $state) {
+      	echo "<hr>$state->initials - $state->name";
+      }
 
     //with(nome relação) //trás todas as relações das relações de uma vez só
-      $countrys= Country::where('name','LIKE', '%a%')->with('states')->get();
+      // $countrys= Country::where('name','LIKE', '%a%')->with('states')->get();
 
 
 
-      foreach ($countrys as $countrys) {
-      	 echo "<b> {$countrys->name}</b>";
-          $states= $countrys->states;
+      // foreach ($countrys as $countrys) {
+      // 	 echo "<b> {$countrys->name}</b>";
+      //     $states= $countrys->states;
 
 
-          foreach ($states as $state) {
-              echo " <br> {$state->initials} - {$state->name}:";
+      //     foreach ($states as $state) {
+      //         echo " <br> {$state->initials} - {$state->name}:";
 
-                 foreach ($state->cities as $city) {
-                    echo  "{$city->name}, ";
-                 }
-          }
-          echo "<hr>";
-      }
+      //            foreach ($state->cities as $city) {
+      //               echo  "{$city->name}, ";
+      //            }
+      //     }
+      //     echo "<hr>";
+      // }
     }
 
     public function ManyToOne(){
