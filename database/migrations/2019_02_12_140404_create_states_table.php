@@ -20,8 +20,8 @@ class CreateStatesTable extends Migration
                                          ->on('countries')
                                          ->onDelete('cascade');
 
-            $table->string('name');
-            $table->string('initials');
+            $table->string('name', 100);
+            $table->string('initials', 10);
             $table->timestamps();
         });
     }
