@@ -26,3 +26,4 @@ $this->get('/one-to-many', 'OneToManyController@OneToMany');
 $this->get('/one-to-many-insert', 'OneToManyController@OneToManyInsert');
 
 $this->get('/many-to-one', 'OneToManyController@ManyToOne');
+$this->get('/has-many-through', 'OneToManyController@HasManyThrougt');

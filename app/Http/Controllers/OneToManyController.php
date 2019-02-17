@@ -69,4 +69,22 @@ class OneToManyController extends Controller
      var_dump($insertstate);
    }
 
+
+  //listar todas as cidades de um pais indetendente dos estados
+   public function HasManyThrougt(){
+    
+     $country= Country::find(1);
+     echo "<br><b> {$country->name}: </b><br>";
+
+     $cities= $country->cities;
+
+
+     foreach ($cities as $city) {
+       echo "{$city->name} <br>";
+     }
+
+     echo "total de cidades <br>";
+     echo "{$cities->count()}";
+   }
+
 }
