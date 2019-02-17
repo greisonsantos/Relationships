@@ -16,8 +16,8 @@ class OneToManyController extends Controller
 
      //em formato de atributo
       $states= $country->states;
-      ou metodo
-      $states= $country->states()->where();
+     // ou metodo
+      $states= $country->states;
 
       foreach ($states as $state) {
       	echo "<hr>$state->initials - $state->name";
@@ -54,5 +54,19 @@ class OneToManyController extends Controller
 
        echo "Pais $country->name";
     }
+
+   //inserir estados pertencentes ao brasil
+     public function OneToManyInsert(){
+     
+     $dataForm=[
+      'name'=>'ceara',
+      'initials'=> 'CE'];
+
+      $country= Country::find(1);
+      //erro massAssignment pois o valor inserido não esta no fillable
+      $insertstate=$country->states()->create($dataForm);
+
+     var_dump($insertstate);
+   }
 
 }
