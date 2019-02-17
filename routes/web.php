@@ -29,3 +29,4 @@ $this->get('/many-to-one', 'OneToManyController@ManyToOne');
 $this->get('/has-many-through', 'OneToManyController@HasManyThrougt');
 
 $this->get('/many-to-many', 'ManyToMantController@ManyToManay');
+$this->get('/many-to-many-inverse', 'ManyToMantController@ManyToManayInverse');
