@@ -33,4 +33,21 @@ class ManyToMantController extends Controller
         }
 
     }
+
+    public function ManyToManayInsert(){
+
+    $dataForm=[3,4,5];
+
+    $company= Company::find(1);
+
+   // attach sempre incrementa mais
+   // $company->cities()->attach($dataForm);
+   //  não cadastra novamente os dados somente sincroniza
+    //os dados que já estão no bd nao são inseridos novamente
+
+    //contrario do attach remove um ou mais itens
+    // $company->cities()->attach($dataForm);
+    $company->cities()->sinc($dataForm);
+
+    }
 }
